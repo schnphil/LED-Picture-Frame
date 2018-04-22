@@ -1,0 +1,89 @@
+{
+	"extensionName": "BilderrahmenLED",
+	"description": "smile Digitaler Bilderrahmen",
+	"version": "1.1",
+	"author": "Marion Nebuhr (nebuhr@uni-bremen.de)",
+	"homepage": "http://www.smile-smart-it.de",
+	"sort": 0,
+	"javascriptURL": "js/demo.js",
+	"firmware": "1.0",
+	"extensionPort": 0,
+	"blockSpecs": [
+		["h", "Programm", "runArduino"],
+		[
+			"w",
+			"Bilderrahmen an Pin: %n anschliessen, mit Anzahl:%n LEDs",
+			"",
+			"5",
+			"3",
+			{
+				"setup": "FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds,{1});\n",
+				"inc": "#include <FastLED.h>\n",
+				"def": "\n#define DATA_PIN {0}\n#define NUM_LEDS {1}\n\nCRGB leds[NUM_LEDS];",
+				"work": "",
+				"loop": ""
+			}
+		],
+		[
+			"w",
+			"LED %n R: %n G: %n B: %n",
+			"LEDrgb",
+			"0",
+			"255",
+			"255",
+			"255",
+			{
+				"setup": "",
+				"inc": "",
+				"def": "",
+				"work": "leds[(int){0}] = CRGB( {1}, {2}, {3});\nFastLED.show();\n",
+				"loop": ""
+			}
+		],
+		[
+			"w",
+			"Regenbogen Farbton: %n",
+			"rainbow",
+			"0",
+			{
+				"setup": "",
+				"inc": "#include \"rainbow.h\"\n",
+				"def": "",
+				"work": "rainbow(leds, NUM_LEDS,(int){0});\nFastLED.show();\n",
+				"loop": ""
+			}
+		],
+		[
+			"w",
+			"Regenbogen mit Glitter Farbton: %n Glitterwahrscheinlichkeit: %n",
+			"rainbow_with_glitter",
+			"0",
+			"80",
+			{
+				"setup": "",
+				"inc": "#include \"rainbow.h\"\n",
+				"def": "",
+				"work": "rainbowWithGlitter(leds, NUM_LEDS,(int){0},(int){1});\nFastLED.show();\n",
+				"loop": ""
+			}
+		]
+	],
+	"menus": {
+		"digital": [
+			"HIGH", "LOW"
+		],
+		"values": {
+			"HIGH": 1,
+			"LOW": 0
+		}
+	},
+	"translators": {
+		"zh_CN": {
+			"Programm": "Demo Program",
+			"HIGH": "高电平",
+			"LOW": "低电平",
+			"digitalWrite( %n , %d.digital )": "数字口输出( %n ,%d.digital )",
+			"blink": "闪烁"
+		}
+	}
+}
