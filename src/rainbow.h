@@ -16,7 +16,12 @@
 * hue      : Startwert des Regenbogens.
 */
 void rainbow(CRGB* leds, uint8_t num_leds, uint8_t hue);
+
+/**
+* Fuegt Glitter hinzu.
+**/
 void addGlitter(CRGB* leds, uint8_t num_leds, fract8 chanceOfGlitter);
+
 void rainbowWithGlitter(CRGB* leds, uint8_t num_leds, uint8_t hue, fract8 chanceOfGlitter);
 
 #endif
