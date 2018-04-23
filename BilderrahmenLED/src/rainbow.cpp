@@ -17,3 +17,11 @@ void rainbowWithGlitter(CRGB* leds, uint8_t num_leds, uint8_t hue, fract8 chance
   rainbow(leds, num_leds, hue);
   addGlitter(leds, num_leds, chanceOfGlitter);
 }
+
+void confetti(CRGB* leds, uint8_t num_leds, uint8_t hue) 
+{
+  // random colored speckles that blink in and fade smoothly
+  fadeToBlackBy(leds, num_leds, 10);
+  int pos = random16(num_leds);
+  leds[pos] += CHSV( hue + random8(64), 200, 255);
+}
