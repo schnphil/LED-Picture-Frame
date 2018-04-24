@@ -1,7 +1,7 @@
 {
 	"extensionName": "BilderrahmenLED",
 	"description": "smile Digitaler Bilderrahmen",
-	"version": "1.3",
+	"version": "1.4",
 	"author": "Marion Nebuhr (nebuhr@uni-bremen.de)",
 	"homepage": "http://www.smile-smart-it.de",
 	"sort": 0,
@@ -76,6 +76,45 @@
 				"inc": "#include \"rainbow.h\"\n",
 				"def": "",
 				"work": "confetti(leds, NUM_LEDS, 10);\nFastLED.show();\n",
+				"loop": ""
+			}
+		],
+		[
+			"w",
+			"Sinelon Farbton: %n",
+			"sinelon",
+			"20",
+			{
+				"setup": "",
+				"inc": "#include \"rainbow.h\"\n",
+				"def": "",
+				"work": "sinelon(leds, NUM_LEDS,(int){1});\nFastLED.show();\n",
+				"loop": ""
+			}
+		],
+		[
+			"w",
+			"BPM Farbton: %n",
+			"bpm",
+			"0",
+			{
+				"setup": "",
+				"inc": "#include \"rainbow.h\"\n",
+				"def": "",
+				"work": "bpm(leds, NUM_LEDS,(int){1});\nFastLED.show();\n",
+				"loop": ""
+			}
+		],
+		[
+			"w",
+			"Jungle",
+			"jungle",
+			"0",
+			{
+				"setup": "",
+				"inc": "#include \"rainbow.h\"\n",
+				"def": "",
+				"work": "jungle(leds, NUM_LEDS);\nFastLED.show();\n",
 				"loop": ""
 			}
 		]
